@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbiwfltt3l28c"]
+
+[ext_resource type="PackedScene" uid="uid://d0xfd85fmn101" path="res://racecar.tscn" id="1_bovsq"]
+[ext_resource type="Script" path="res://cameras.gd" id="1_mi7ae"]
+[ext_resource type="Script" path="res://car_camera.gd" id="1_tm05y"]
+[ext_resource type="PackedScene" uid="uid://w7d1wwgun8w3" path="res://obstacle.tscn" id="2_pilbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elbvg"]
+size = Vector3(10, 0.115, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w7vqu"]
+size = Vector3(10, 0.115, 10)
+
+[node name="Main" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_elbvg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_w7vqu")
+
+[node name="Cameras" type="Node" parent="."]
+script = ExtResource("1_mi7ae")
+
+[node name="CarCameraPivot" type="Node3D" parent="Cameras"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.65633, 1.1318)
+
+[node name="CarCamera" type="Camera3D" parent="Cameras/CarCameraPivot" node_paths=PackedStringArray("target")]
+current = true
+script = ExtResource("1_tm05y")
+target = NodePath("../../../Racecar")
+
+[node name="GodCameraPivot" type="Node3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11355, 2.72519)
+
+[node name="GodCamera" type="Camera3D" parent="Cameras/GodCameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.442711, 0.896664, 0, -0.896664, 0.442711, 0, 5.08349, 0)
+size = 5.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00942467, 0.999956, 0, -0.999956, -0.00942467, 0, 5.84051, 0.24839)
+light_energy = 1.229
+
+[node name="Racecar" parent="." instance=ExtResource("1_bovsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015165, 0.507579, 0.00317574)
+collision_mask = 4
+
+[node name="ObstacleGroup" type="Node" parent="."]
+
+[node name="Obstacle" parent="ObstacleGroup" instance=ExtResource("2_pilbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75307, 1.03799, 3.50448)
+
+[node name="Obstacle2" parent="ObstacleGroup" instance=ExtResource("2_pilbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93479, 1.11709, 1.43515)
+
+[node name="Obstacle3" parent="ObstacleGroup" instance=ExtResource("2_pilbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16941, 1.03799, -1.5638)
+
+[node name="Obstacle4" parent="ObstacleGroup" instance=ExtResource("2_pilbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16583, 0.997596, -2.61415)
