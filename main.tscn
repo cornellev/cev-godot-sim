@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbiwfltt3l28c"]
+[gd_scene load_steps=9 format=3 uid="uid://cbiwfltt3l28c"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_3ojis"]
 [ext_resource type="Script" path="res://ground.gd" id="1_33ove"]
 [ext_resource type="PackedScene" uid="uid://d0xfd85fmn101" path="res://racecar.tscn" id="1_bovsq"]
 [ext_resource type="Script" path="res://cameras.gd" id="1_mi7ae"]
@@ -13,6 +14,7 @@ size = Vector3(100, 0.115, 100)
 size = Vector3(100, 0.115, 100)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_3ojis")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_layer = 2
