@@ -11,6 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print("hello world")
+	ros2_node.spin_once()
 	pass   
 	
 func _on_tree_exited() -> void:
