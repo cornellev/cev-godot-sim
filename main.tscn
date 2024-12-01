@@ -16,6 +16,10 @@ size = Vector3(100, 0.115, 100)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_3ojis")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.757804, 0.652482, 0, -0.652482, 0.757804, 0.204042, 3.24167, 6.59355)
+light_energy = 1.229
+
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_layer = 2
 collision_mask = 4
@@ -45,14 +49,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11355, 2.72519)
 transform = Transform3D(1, 0, 0, 0, 0.442711, 0.896664, 0, -0.896664, 0.442711, 0, 5.08349, 0)
 size = 5.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.757804, 0.652482, 0, -0.652482, 0.757804, 0.204042, 3.24167, 6.59355)
-light_energy = 1.229
-
-[node name="Racecar" parent="." instance=ExtResource("1_bovsq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-collision_mask = 4
-
 [node name="ObstacleGroup" type="Node" parent="."]
 
 [node name="Obstacle" parent="ObstacleGroup" instance=ExtResource("2_pilbx")]
@@ -66,3 +62,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -1.5)
 
 [node name="Obstacle4" parent="ObstacleGroup" instance=ExtResource("2_pilbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -2.5)
+
+[node name="Racecar" parent="." instance=ExtResource("1_bovsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_mask = 4
+
+[node name="Scanner" type="RayCast3D" parent="."]
+collision_mask = 4
