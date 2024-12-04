@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8dvvj5ymix0"]
+
+[ext_resource type="Script" path="res://encoder.gd" id="1_e4el5"]
+
+[node name="Encoder" type="Node"]
+script = ExtResource("1_e4el5")

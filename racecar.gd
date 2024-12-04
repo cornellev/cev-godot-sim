@@ -8,6 +8,7 @@ const JUMP_VELOCITY = 4.5
 const WHEELBASE = 1
 var yaw = 0.0
 
+var velocity_forward: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	## Add the gravity.
@@ -29,6 +30,6 @@ func _physics_process(delta: float) -> void:
 	#rotation.y = yaw
 	rotation.y += speed * tan(steering) / WHEELBASE * delta
 	var dstate = Vector3(speed, 0, 0).rotated(Vector3.UP, rotation.y) * delta
-	
+	velocity_forward = speed;
 	#move_and_slide()
 	move_and_collide(dstate)

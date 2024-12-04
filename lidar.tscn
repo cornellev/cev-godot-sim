@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://doo2e114ygjqc"]
+
+[ext_resource type="Script" path="res://lidar.gd" id="1_ctf62"]
+
+[node name="lidar" type="RayCast3D"]
+collision_mask = 4
+script = ExtResource("1_ctf62")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckpou8yirsf82"]
+
+[ext_resource type="Script" path="res://example_sensor.gd" id="1_tcm3s"]
+
+[node name="Example_Sensor" type="Node"]
+script = ExtResource("1_tcm3s")

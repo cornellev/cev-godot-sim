@@ -1,16 +1,12 @@
 extends Node
 
-var ros2_node: GodotRosNode
+@export var property: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GodotRosNode.Startup()
-	ros2_node = GodotRosNode.new()
+	print("example sensor created with property=" + property)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	ros2_node.spin_some()
-	pass   
-	
-func _on_tree_exited() -> void:
-	GodotRosNode.Shutdown()
+	#print('example sensor working')
+	pass  

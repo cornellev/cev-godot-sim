@@ -1,11 +1,27 @@
 [gd_scene load_steps=9 format=3 uid="uid://cbiwfltt3l28c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3ojis"]
-[ext_resource type="Script" path="res://ground.gd" id="1_33ove"]
 [ext_resource type="PackedScene" uid="uid://d0xfd85fmn101" path="res://racecar.tscn" id="1_bovsq"]
 [ext_resource type="Script" path="res://cameras.gd" id="1_mi7ae"]
 [ext_resource type="Script" path="res://car_camera.gd" id="1_tm05y"]
 [ext_resource type="PackedScene" uid="uid://w7d1wwgun8w3" path="res://obstacle.tscn" id="2_pilbx"]
+
+[sub_resource type="GDScript" id="GDScript_polqr"]
+script/source = "extends StaticBody3D
+
+@export var target: Node3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if target:
+		pass
+		
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elbvg"]
 size = Vector3(100, 0.115, 100)
@@ -23,7 +39,7 @@ light_energy = 1.229
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_layer = 2
 collision_mask = 4
-script = ExtResource("1_33ove")
+script = SubResource("GDScript_polqr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_elbvg")
