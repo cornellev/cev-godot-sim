@@ -50,20 +50,12 @@ mesh = SubResource("BoxMesh_w7vqu")
 [node name="Cameras" type="Node" parent="."]
 script = ExtResource("1_mi7ae")
 
-[node name="CarCameraPivot" type="Node3D" parent="Cameras"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.65633, 1.1318)
-
-[node name="CarCamera" type="Camera3D" parent="Cameras/CarCameraPivot" node_paths=PackedStringArray("target")]
-current = true
-script = ExtResource("1_tm05y")
-target = NodePath("../../../Racecar")
-follow_speed = null
-
 [node name="GodCameraPivot" type="Node3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11355, 2.72519)
 
 [node name="GodCamera" type="Camera3D" parent="Cameras/GodCameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.442711, 0.896664, 0, -0.896664, 0.442711, 0, 5.08349, 0)
+current = true
 size = 5.0
 
 [node name="ObstacleGroup" type="Node" parent="."]
@@ -86,3 +78,15 @@ collision_mask = 4
 
 [node name="Scanner" type="RayCast3D" parent="."]
 collision_mask = 4
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="CarCameraPivot" type="Node3D" parent="SubViewport"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.65633, 1.1318)
+
+[node name="CarCamera" type="Camera3D" parent="SubViewport/CarCameraPivot" node_paths=PackedStringArray("target")]
+current = true
+script = ExtResource("1_tm05y")
+target = NodePath("../../../Racecar")
