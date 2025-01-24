@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dveu6f7xqk2sy"]
+
+[ext_resource type="Script" path="res://imu.gd" id="1_ses7y"]
+
+[node name="Imu" type="Node"]
+script = ExtResource("1_ses7y")

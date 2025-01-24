@@ -6,7 +6,8 @@ var sensors = []
 var SENSOR_MAP: Dictionary = {
 		"example_sensor": "res://example_sensor.tscn",
 		"lidar": "res://lidar.tscn",
-		"encoder": "res://encoder.tscn"
+		"encoder": "res://encoder.tscn",
+		"imu": "res://imu.tscn"
 	};
 
 # Called when the node enters the scene tree for the first time.
