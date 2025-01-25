@@ -10,7 +10,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	ros2_node.spin_some()
-	pass   
 	
 func _on_tree_exited() -> void:
 	GodotRosNode.Shutdown()
