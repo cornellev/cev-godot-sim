@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbiwfltt3l28c"]
+[gd_scene load_steps=7 format=3 uid="uid://cbiwfltt3l28c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3ojis"]
 [ext_resource type="PackedScene" uid="uid://d0xfd85fmn101" path="res://racecar.tscn" id="1_bovsq"]
-[ext_resource type="Script" path="res://cameras.gd" id="1_mi7ae"]
-[ext_resource type="Script" path="res://car_camera.gd" id="1_tm05y"]
 [ext_resource type="PackedScene" uid="uid://w7d1wwgun8w3" path="res://obstacle.tscn" id="2_pilbx"]
 
 [sub_resource type="GDScript" id="GDScript_polqr"]
@@ -48,7 +46,6 @@ shape = SubResource("BoxShape3D_elbvg")
 mesh = SubResource("BoxMesh_w7vqu")
 
 [node name="Cameras" type="Node" parent="."]
-script = ExtResource("1_mi7ae")
 
 [node name="GodCameraPivot" type="Node3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11355, 2.72519)
@@ -78,15 +75,3 @@ collision_mask = 4
 
 [node name="Scanner" type="RayCast3D" parent="."]
 collision_mask = 4
-
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(256, 256)
-render_target_update_mode = 4
-
-[node name="CarCameraPivot" type="Node3D" parent="SubViewport"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.65633, 1.1318)
-
-[node name="CarCamera" type="Camera3D" parent="SubViewport/CarCameraPivot" node_paths=PackedStringArray("target")]
-current = true
-script = ExtResource("1_tm05y")
-target = NodePath("../../../Racecar")

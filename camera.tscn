@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nqt24ikuf702"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_8m718"]
+[ext_resource type="Script" path="res://car_camera.gd" id="1_r51x4"]
+
+[node name="SubViewport" type="SubViewport"]
+render_target_update_mode = 4
+script = ExtResource("1_8m718")
+
+[node name="CarCameraPivot" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.65633, 1.1318)
+
+[node name="CarCamera" type="Camera3D" parent="CarCameraPivot"]
+current = true
+script = ExtResource("1_r51x4")

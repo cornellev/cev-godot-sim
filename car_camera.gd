@@ -1,13 +1,15 @@
 extends Camera3D
 
-@export var target: Node3D
-@export var follow_speed: float = 5.0
-
+var topic_name: String
+var frame_id: String
+var follow_speed: float = 5.0
 var publisher: GodotRosImagePublisher
 
 func _ready() -> void:
+	topic_name = get_parent().get_parent().topic_name
+	frame_id = get_parent().get_parent().frame_id
 	publisher = GodotRosImagePublisher.new()
-	publisher.init(Global.ros2_node, "/camera", 10);
+	publisher.init(Global.ros2_node, topic_name, 10);
 
 #get_tree().root.get_texture().get_data() 
 
@@ -20,6 +22,7 @@ func get_camera_image(camera: Camera3D) -> Image:
 	return null
 
 func _process(delta):
+	var target = $"../../../Racecar"
 	if target:
 		global_transform.origin = lerp(global_transform.origin, target.global_transform.origin, follow_speed * delta)
 		var desired_rotation = target.rotation
@@ -27,4 +30,4 @@ func _process(delta):
 		
 		var image = get_camera_image(self)
 		if image:
-			publisher.publish(image, "camera_frame");
+			publisher.publish(image, frame_id);
