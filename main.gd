@@ -7,7 +7,7 @@ func _ready() -> void:
 	# add_child(ConfigLoader.vehicle)
 	# Then, pass a reference to the vehicle to each sensor when it's created
 	
-	for sensor in ConfigLoader.sensors:
+	for sensor in SensorLoader.sensors:
 		add_child(sensor)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

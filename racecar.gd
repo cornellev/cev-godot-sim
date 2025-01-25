@@ -12,8 +12,8 @@ var velocity_forward: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	# Inputs
-	var speed = MAX_SPEED * ((1 if Input.is_action_pressed("forward") else 0) - (1 if Input.is_action_pressed("back") else 0))
-	var steering = MAX_STEERING * ((1 if Input.is_action_pressed("left") else 0) - (1 if Input.is_action_pressed("right") else 0))
+	var speed = MAX_SPEED * InputSource.get_speed()
+	var steering = MAX_STEERING * InputSource.get_steering()
 #
 	rotation.y += speed * tan(steering) / WHEELBASE * delta
 	var dstate = Vector3(speed, 0, 0).rotated(Vector3.UP, rotation.y) * delta

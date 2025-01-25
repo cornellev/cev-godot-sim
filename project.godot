@@ -18,7 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://global.tscn"
-ConfigLoader="*res://config_loader.tscn"
+InputSource="*res://input_source.gd"
+Config="*res://Config.gd"
+SensorLoader="*res://sensor_loader.gd"
 
 [input]
 
