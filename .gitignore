@@ -1,3 +1,5 @@
 .godot
 bin
 bin/*
+export_presets.cfg
+.DS_Store
