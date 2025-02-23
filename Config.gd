@@ -12,7 +12,16 @@ func load_config():
 	
 	# If the file didn't load, ignore it.
 	if err != OK:
-		print("Didn't fing config.ini")
+		print("Didn't find config.ini")
+	else:
+		print("Found config.ini")
+		return
+
+	err = config.load("res://default_config.ini")
+	if err != OK:
+		print("Didn't find default_config.ini, no config loaded")
+	else:
+		print("Found default_config.ini")
 		return
 
 func get_config():
