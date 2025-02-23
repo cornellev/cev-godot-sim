@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbiwfltt3l28c"]
+[gd_scene load_steps=8 format=3 uid="uid://cbiwfltt3l28c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3ojis"]
 [ext_resource type="PackedScene" uid="uid://d0xfd85fmn101" path="res://racecar.tscn" id="1_bovsq"]
 [ext_resource type="PackedScene" uid="uid://w7d1wwgun8w3" path="res://obstacle.tscn" id="2_pilbx"]
+[ext_resource type="Script" path="res://check_button.gd" id="4_ma8tm"]
 
 [sub_resource type="GDScript" id="GDScript_polqr"]
 script/source = "extends StaticBody3D
@@ -75,3 +76,15 @@ collision_mask = 4
 
 [node name="Scanner" type="RayCast3D" parent="."]
 collision_mask = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
+offset_right = 44.0
+offset_bottom = 24.0
+disabled = true
+button_pressed = true
+text = "Use manual controls?"
+script = ExtResource("4_ma8tm")
+
+[connection signal="toggled" from="CanvasLayer/CheckButton" to="CanvasLayer/CheckButton" method="_on_toggled"]

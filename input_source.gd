@@ -1,5 +1,6 @@
 extends Node
 
+
 var steering_subscriber: GodotRosFloat64Subscriber
 var speed_subscriber: GodotRosFloat64Subscriber
 var steering: float
@@ -14,10 +15,11 @@ func _ready() -> void:
 	var config = Config.get_config()
 	#print("gets config")
 	
-	use_manual_control = true # false
+	use_manual_control = false
 	has_any_ros = false
 	
 	if config.has_section("input_sources"):
+		# TODO: make the topic names configurable?
 		steering_subscriber = GodotRosFloat64Subscriber.new()
 		steering_subscriber.init(Global.ros2_node, config.get_value("input_sources", "steering_topic", "steering"))
 		steering_subscriber.connect("message_received", save_steering)
@@ -28,6 +30,7 @@ func _ready() -> void:
 		
 		has_any_ros = true
 	else:
+		use_manual_control = true
 		print("Has no ROS input sources")
 
 func save_steering(data):
