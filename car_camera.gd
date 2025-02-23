@@ -24,9 +24,7 @@ func get_camera_image(camera: Camera3D) -> Image:
 func _process(delta):
 	var target = $"../../../Racecar"
 	if target:
-		global_transform.origin = lerp(global_transform.origin, target.global_transform.origin, follow_speed * delta)
-		var desired_rotation = target.rotation
-		rotation = rotation.lerp(desired_rotation, follow_speed * delta)
+		global_transform = target.global_transform
 		
 		var image = get_camera_image(self)
 		if image:
